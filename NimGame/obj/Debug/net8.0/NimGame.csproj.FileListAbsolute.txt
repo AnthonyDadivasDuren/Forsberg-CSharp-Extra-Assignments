@@ -1,0 +1,14 @@
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\bin\Debug\net8.0\NimGame.exe
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\bin\Debug\net8.0\NimGame.deps.json
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\bin\Debug\net8.0\NimGame.runtimeconfig.json
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\bin\Debug\net8.0\NimGame.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\bin\Debug\net8.0\NimGame.pdb
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.AssemblyInfoInputs.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.AssemblyInfo.cs
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.csproj.CoreCompileInputs.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\refint\NimGame.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.pdb
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.genruntimeconfig.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\ref\NimGame.dll
