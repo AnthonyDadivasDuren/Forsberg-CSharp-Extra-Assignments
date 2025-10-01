@@ -12,3 +12,18 @@ C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.
 C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.pdb
 C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\NimGame.genruntimeconfig.cache
 C:\Forsberg Assignments\Forsberg-CSharp-Extra-Challenges\NimGame\obj\Debug\net8.0\ref\NimGame.dll
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\bin\Debug\net8.0\NimGame.exe
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\bin\Debug\net8.0\NimGame.deps.json
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\bin\Debug\net8.0\NimGame.runtimeconfig.json
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\bin\Debug\net8.0\NimGame.dll
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\bin\Debug\net8.0\NimGame.pdb
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.AssemblyInfoInputs.cache
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.AssemblyInfo.cs
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.csproj.CoreCompileInputs.cache
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.sourcelink.json
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.dll
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\refint\NimGame.dll
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.pdb
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\NimGame.genruntimeconfig.cache
+C:\ForsbergProjectRepos\Forsberg-CSharp-Extra-Assignments\NimGame\obj\Debug\net8.0\ref\NimGame.dll

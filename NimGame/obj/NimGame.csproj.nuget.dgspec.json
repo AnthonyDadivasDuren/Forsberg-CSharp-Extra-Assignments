@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Challenges\\NimGame\\NimGame.csproj": {}
+    "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj": {}
   },
   "projects": {
-    "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Challenges\\NimGame\\NimGame.csproj": {
+    "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Challenges\\NimGame\\NimGame.csproj",
+        "projectUniqueName": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
         "projectName": "NimGame",
-        "projectPath": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Challenges\\NimGame\\NimGame.csproj",
+        "projectPath": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
         "packagesPath": "C:\\Users\\antho\\.nuget\\packages\\",
-        "outputPath": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Challenges\\NimGame\\obj\\",
+        "outputPath": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\antho\\AppData\\Roaming\\NuGet\\NuGet.Config"

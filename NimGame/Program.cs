@@ -32,107 +32,58 @@ Implement an AI-Player
     Can you make it unbeatable?
  */
 
-//todo
-// add failsafes so input can only be numbers
-//limit player choice
-//add menu 
-// code cleanup
+namespace NimGame
+{
+    static class Program
+    {
+        static void Main()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("==== NIM ====");
+                Console.WriteLine("1) Player vs Player ");
+                Console.WriteLine("2) Play vs AI (Easy)");
+                Console.WriteLine("3) Play vs AI (Unbeatable)");
+                Console.WriteLine("3) Quit");
+                Console.Write("Choice: ");
 
-int currentMatches = 24;
-int matchesDrawn = 0;
-char match = '|';
-string output = "";
+                var choice = Console.ReadLine();
 
-int choiceRange = 3;
-int aichoice = 0;
-int playerChoiche = 0;
+                if (choice == "1")
+                {
+                    IPlayer human1 = new HumanPlayer("Player 1");
+                    IPlayer human2 = new HumanPlayer("Player 2");
+                    
+                    var game = new NimGame(human1, human2, startingMatches: 24);
+                    game.Run();
+                }
+                
+                if (choice == "2" || choice == "3")
+                {
+                    IPlayer human = new HumanPlayer("You");
+                    AiMode mode = choice == "1" ? AiMode.Easy : AiMode.Unbeatable;
+                    IPlayer ai = new AiPlayer(mode);
 
-int currentTurn = 1;
+                    var game = new NimGame(human, ai, startingMatches: 24);
+                    game.Run();
 
-bool isRunning = true;
-bool win = false;
-bool gameOver = false;
- 
-Random random = new Random();
-
-Console.WriteLine("Welcome to Nim");
-
-
- while (true)
- {
-     
-     output = "";
-     
-     if (currentMatches < 1)
-         break;
-     
-
-     
-     for (int i = 0; i < currentMatches; i++)
-     {
-         output += match;
-     }
-     Console.Clear();
-     Console.WriteLine($"{output} ({currentMatches})");
-     
-     
-     choiceRange = Math.Min(3, currentMatches);
-
-     if (currentTurn % 2 != 0)
-     {
-         PlayerTurn();
-     }
-     else
-     {
-         AITurn();
-     }
- }
- 
-
- void PlayerTurn()
- {
-     Console.WriteLine("How many matches do you want to draw?");
-     playerChoiche = int.Parse(Console.ReadLine());
-
-     if (playerChoiche < 1 || playerChoiche > Math.Min(3, currentMatches))
-     {
-         Console.WriteLine("Invalid choice. Try again.");
-         return;
-     }
-
-     currentMatches -= playerChoiche;
-
-     if (currentMatches <= 0)
-     {
-         gameOver = true;
-         Console.WriteLine("You drew the last match. You lose!");
-         Console.ReadLine();
-     }
-     else
-     {
-         currentTurn++;
-     }
- }
-
- void AITurn()
- {
-     aichoice = random.Next(1, Math.Min(3, currentMatches) + 1);
-     Console.WriteLine($"AI draws {aichoice} matches.");
-     Console.ReadLine();
-
-     currentMatches -= aichoice;
-
-     if (currentMatches <= 0)
-     {
-         win = true;
-         Console.WriteLine("AI drew the last match. You win!");
-         Console.ReadLine();
-     }
-     else
-     {
-         currentTurn++;
-     }
- } 
-
- 
- 
+                    Console.Write("\nPlay again? (y/n): ");
+                    var again = Console.ReadLine() ?? "";
+                    again = again.ToLower();
+                    if ( again == "y")
+                        break;
+                }
+                else if (choice == "4")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Press Enter to continue...");
+                    Console.ReadLine();
+                }
+            }
+        }
+    }
+}
