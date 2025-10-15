@@ -1,0 +1,15 @@
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\bin\Debug\net8.0\CharacterCustomization.exe
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\bin\Debug\net8.0\CharacterCustomization.deps.json
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\bin\Debug\net8.0\CharacterCustomization.runtimeconfig.json
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\bin\Debug\net8.0\CharacterCustomization.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\bin\Debug\net8.0\CharacterCustomization.pdb
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.AssemblyInfoInputs.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.AssemblyInfo.cs
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.csproj.CoreCompileInputs.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.sourcelink.json
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\refint\CharacterCustomization.dll
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.pdb
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\CharacterCustomization.genruntimeconfig.cache
+C:\Forsberg Assignments\Forsberg-CSharp-Extra-Assignments\CharacterCustomization\obj\Debug\net8.0\ref\CharacterCustomization.dll
