@@ -21,11 +21,19 @@ public class NimGame(IPlayer player1, IPlayer player2, int[]? piles = null, int 
             int[] move = current.GetMove(_piles, maxTake);
             int row = move[0];
             int take = move[1];
+            
+            if (!current.IsHuman)
+            {
+                Console.Clear();
+                Console.WriteLine($"\n{current.Name} takes {take} match(es) from row {row + 1}.");
+                Console.ReadLine(); 
+            }
 
             _piles[row] -= take;
 
             if (IsGameOver())
             {
+                Console.Clear();
                 Console.WriteLine($"\n{current.Name} took the last match. {opponent.Name} win!");
                 Console.WriteLine("Press Enter to continue...");
                 Console.ReadLine();

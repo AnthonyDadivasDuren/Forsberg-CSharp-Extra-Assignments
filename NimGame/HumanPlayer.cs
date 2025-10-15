@@ -12,7 +12,7 @@ public class HumanPlayer(string name = "Player") : IPlayer
             Console.Write($"\n{Name}, choose a row (1–{piles.Length}): ");
             var rowInput = Console.ReadLine();
 
-            if (!int.TryParse(rowInput, out int row) || row < 1 || row > piles.Length)
+            if (!int.TryParse(rowInput, out var row) || row < 1 || row > piles.Length)
             {
                 Console.WriteLine("Invalid row number.");
                 continue;
