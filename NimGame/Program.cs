@@ -34,56 +34,65 @@ Implement an AI-Player
 
 namespace NimGame
 {
-    static class Program
+    using System;
+    
+    class Program
     {
         static void Main()
         {
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("==== NIM ====");
-                Console.WriteLine("1) Player vs Player ");
+                Console.WriteLine("==== Welcome to NimGame ====");
+                Console.WriteLine("1) Player vs Player");
                 Console.WriteLine("2) Play vs AI (Easy)");
                 Console.WriteLine("3) Play vs AI (Unbeatable)");
-                Console.WriteLine("3) Quit");
+                Console.WriteLine("4) Quit");
                 Console.Write("Choice: ");
 
-                var choice = Console.ReadLine();
+                string choice = Console.ReadLine()?.Trim();
 
                 if (choice == "1")
                 {
+                   
                     IPlayer human1 = new HumanPlayer("Player 1");
                     IPlayer human2 = new HumanPlayer("Player 2");
-                    
-                    var game = new NimGame(human1, human2, startingMatches: 24);
+
+                    var game = new NimGame(human1, human2, [3, 4, 5]);
                     game.Run();
                 }
-                
-                if (choice == "2" || choice == "3")
+                else if (choice == "2" || choice == "3")
                 {
                     IPlayer human = new HumanPlayer("You");
-                    AiMode mode = choice == "1" ? AiMode.Easy : AiMode.Unbeatable;
+                    AiMode mode = choice == "2" ? AiMode.Easy : AiMode.Unbeatable;
                     IPlayer ai = new AiPlayer(mode);
 
-                    var game = new NimGame(human, ai, startingMatches: 24);
+                   
+                    var game = new NimGame(human, ai, [3, 4, 5]);
                     game.Run();
-
-                    Console.Write("\nPlay again? (y/n): ");
-                    var again = Console.ReadLine() ?? "";
-                    again = again.ToLower();
-                    if ( again == "y")
-                        break;
                 }
                 else if (choice == "4")
                 {
-                    break;
+                    break; 
                 }
                 else
                 {
                     Console.WriteLine("Invalid choice. Press Enter to continue...");
                     Console.ReadLine();
+                    continue;
                 }
+
+             
+                Console.Write("\nPlay again? (y/n): ");
+                var again = Console.ReadLine()?.Trim().ToLower();
+
+              
+                if (again != "y")
+                    break;
             }
+
+            Console.WriteLine("\nThanks for playing!");
         }
     }
 }
+

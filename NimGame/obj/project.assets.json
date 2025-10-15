@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
+      "projectUniqueName": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
       "projectName": "NimGame",
-      "projectPath": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
+      "projectPath": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Assignments\\NimGame\\NimGame.csproj",
       "packagesPath": "C:\\Users\\antho\\.nuget\\packages\\",
-      "outputPath": "C:\\ForsbergProjectRepos\\Forsberg-CSharp-Extra-Assignments\\NimGame\\obj\\",
+      "outputPath": "C:\\Forsberg Assignments\\Forsberg-CSharp-Extra-Assignments\\NimGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\antho\\AppData\\Roaming\\NuGet\\NuGet.Config"

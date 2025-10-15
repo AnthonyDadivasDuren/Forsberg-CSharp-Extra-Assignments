@@ -6,5 +6,5 @@ public interface IPlayer
     bool IsHuman { get; }
   
     
-    int GetMove(int currentMatches, int maxTake);
+    int[] GetMove(int[] piles, int maxTake);
 }

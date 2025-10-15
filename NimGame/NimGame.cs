@@ -1,14 +1,15 @@
 namespace NimGame;
 
 using System;
+using System.Linq;
 
-public class NimGame(IPlayer player1, IPlayer player2, int startingMatches = 24, char matchChar = '|')
+public class NimGame(IPlayer player1, IPlayer player2, int[]? piles = null, int maxTake = 3, char matchChar = '|')
 {
-    private int _currentMatches = startingMatches;
+    private readonly int[] _piles = piles ?? [3, 4, 5];
 
     public void Run()
     {
-        int currentTurn = 0; 
+        int currentTurn = 0;
 
         while (true)
         {
@@ -17,33 +18,20 @@ public class NimGame(IPlayer player1, IPlayer player2, int startingMatches = 24,
             IPlayer current = currentTurn == 0 ? player1 : player2;
             IPlayer opponent = currentTurn == 0 ? player2 : player1;
 
-            int maxTake = Math.Min(3, _currentMatches);
-            int take = current.GetMove(_currentMatches, maxTake);
+            int[] move = current.GetMove(_piles, maxTake);
+            int row = move[0];
+            int take = move[1];
 
-            
-            if (take < 1 || take > maxTake)
+            _piles[row] -= take;
+
+            if (IsGameOver())
             {
-                Console.WriteLine($"Invalid move by {current.Name}. Turn skipped.");
-                Console.ReadLine();
-                continue;
-            }
-
-            if (!current.IsHuman)
-            {
-                Console.WriteLine($"\n{current.Name} draws {take} match(es).");
-                Console.ReadLine();
-            }
-
-            _currentMatches -= take;
-
-            if (_currentMatches <= 0)
-            {
-                Console.WriteLine($"\n{current.Name} drew the last match. {opponent.Name} wins!");
+                Console.WriteLine($"\n{current.Name} took the last match. {opponent.Name} win!");
                 Console.WriteLine("Press Enter to continue...");
                 Console.ReadLine();
                 return;
             }
-            
+
             currentTurn = 1 - currentTurn;
         }
     }
@@ -52,22 +40,16 @@ public class NimGame(IPlayer player1, IPlayer player2, int startingMatches = 24,
     {
         Console.Clear();
         Console.WriteLine("==== NIM ====");
-        Console.WriteLine(RenderMatches(_currentMatches));
-        Console.WriteLine($"({_currentMatches})");
+
+        for (int i = 0; i < _piles.Length; i++)
+        {
+            Console.Write($"Row {i + 1}: ");
+            Console.WriteLine(new string(matchChar, _piles[i]));
+        }
     }
 
-    private string RenderMatches(int count)
+    private bool IsGameOver()
     {
-        string result = "";
-
-        for (int i = 1; i <= count; i++)
-        {
-            result += matchChar; 
-
-            if (i % 4 == 0 && i != count)
-                result += " "; 
-        }
-
-        return result;
+        return _piles.All(p => p == 0);
     }
 }

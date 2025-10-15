@@ -9,29 +9,69 @@ public class AiPlayer(AiMode mode) : IPlayer
     public string Name => Mode == AiMode.Unbeatable ? "AI (Unbeatable)" : "AI (Easy)";
     public bool IsHuman => false;
 
-    public int GetMove(int currentMatches, int maxTake)
+    public int[] GetMove(int[] piles, int maxTake)
     {
         if (Mode == AiMode.Unbeatable)
         {
-            
-            if (currentMatches == 1)
-                return 1; 
-
-            int target = (currentMatches - 1) % 4;
-            if (target == 0)
-            {
-                return Math.Min(1, maxTake); 
-            }
-
-            int move = Math.Min(target, maxTake);
-            
-            if (move >= currentMatches)
-                move = Math.Max(1, Math.Min(maxTake, currentMatches - 1));
-
-            return move;
+            return GetOptimalMove(piles, maxTake);
         }
 
-        
-        return _random.Next(1, maxTake + 1);
+        int row;
+        do
+        {
+            row = _random.Next(0, piles.Length);
+        } while (piles[row] == 0);
+
+        int take = _random.Next(1, Math.Min(maxTake, piles[row]) + 1);
+        return [row, take];
+    }
+
+    private int[] GetOptimalMove(int[] piles, int maxTake)
+    {
+        int nimSum = 0;
+        foreach (int pile in piles)
+        {
+            nimSum ^= pile;
+        }
+
+       
+        if (nimSum == 0)
+        {
+            int row;
+            do
+            {
+                row = _random.Next(0, piles.Length);
+            } while (piles[row] == 0);
+
+            int take = _random.Next(1, Math.Min(maxTake, piles[row]) + 1);
+            return [row, take];
+        }
+
+       
+        for (int i = 0; i < piles.Length; i++)
+        {
+            int desired = piles[i] ^ nimSum; 
+            if (desired < piles[i])
+            {
+                int take = piles[i] - desired;
+
+             
+                take = Math.Min(take, Math.Min(maxTake, piles[i]));
+                if (take > 0)
+                {
+                    return [i, take];
+                }
+            }
+        }
+
+     
+        int fallbackRow;
+        do
+        {
+            fallbackRow = _random.Next(0, piles.Length);
+        } while (piles[fallbackRow] == 0);
+
+        int fallbackTake = _random.Next(1, Math.Min(maxTake, piles[fallbackRow]) + 1);
+        return [fallbackRow, fallbackTake];
     }
 }
