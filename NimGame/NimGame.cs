@@ -22,12 +22,10 @@ public class NimGame(IPlayer player1, IPlayer player2, int[]? piles = null, int 
             int row = move[0];
             int take = move[1];
             
-            if (!current.IsHuman)
-            {
-                Console.Clear();
-                Console.WriteLine($"\n{current.Name} takes {take} match(es) from row {row + 1}.");
-                Console.ReadLine(); 
-            }
+           
+            Console.WriteLine($"\n{current.Name} took {take} matches from row {row + 1}.");
+            Console.ReadLine(); 
+            
 
             _piles[row] -= take;
 

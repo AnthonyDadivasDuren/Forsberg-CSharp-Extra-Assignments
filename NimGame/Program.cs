@@ -50,7 +50,7 @@ namespace NimGame
                 Console.WriteLine("4) Quit");
                 Console.Write("Choice: ");
 
-                string choice = Console.ReadLine()?.Trim();
+                string choice = Console.ReadLine()?.Trim() ?? string.Empty;
 
                 if (choice == "1")
                 {
