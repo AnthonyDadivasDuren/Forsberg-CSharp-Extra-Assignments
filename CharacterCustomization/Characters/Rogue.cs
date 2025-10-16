@@ -1,6 +1,6 @@
 namespace CharacterCustomization.Characters;
 
-class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
+class Rogue : Character, ICharacterActions, ISpecial, IAiSpecial
 {
     private int Agility { get; set; }
     public int Energy { get; set; }
@@ -29,8 +29,7 @@ class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
             Console.WriteLine($"{Name} missteps and misses!");
             return 0;
         }
-
-        // High crit chance, lower multiplier
+        
         bool crit = SharedRng.Next(1, 101) <= 30;
 
         int baseDmg = (int)(Agility * 0.8 + Level * 3 + SharedRng.Next(5, 15));
@@ -45,9 +44,9 @@ class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
 
     public void Defend()
     {
-        if (Energy < 5) { System.Console.WriteLine($"{Name} lacks energy to evade!"); return; }
+        if (Energy < 5) { Console.WriteLine($"{Name} lacks energy to evade!"); return; }
         Energy -= 5;
-        System.Console.WriteLine($"{Name} prepares to Evade, reducing next damage. (-5 Energy)");
+        Console.WriteLine($"{Name} prepares to Evade, reducing next damage. (-5 Energy)");
     }
 
     public void Heal()
@@ -59,7 +58,7 @@ class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
         }
 
         HealingPotions--;
-        int healAmount = 15 + (int)(Level * 5);
+        int healAmount = 15 + Level * 5;
         Health = Math.Min(MaxHealth, Health + healAmount);
 
         Console.WriteLine($"{Name} drinks a potion and heals {healAmount} HP. ({Health}/{MaxHealth})");
@@ -69,7 +68,7 @@ class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
     {
         int amount = 20;
         Energy += amount;
-        System.Console.WriteLine($"{Name} catches breath, +{amount} energy. (Energy: {Energy})");
+        Console.WriteLine($"{Name} catches breath, +{amount} energy. (Energy: {Energy})");
     }
 
     // SPECIAL: Shadow Cut — heavy hit + BLEED (2 turns)
@@ -85,7 +84,7 @@ class Rogue : Character, ICharacterActions, ISpecial, IAISpecial
         };
     }
 
-public int SpecialAttackAI(Character defender)
+public int SpecialAttackAi(Character defender)
 {
     if (Energy >= 30 && defender.Health <= defender.MaxHealth * 6 / 10) return DeathMark();
     if (Energy >= 20) return Ambush();

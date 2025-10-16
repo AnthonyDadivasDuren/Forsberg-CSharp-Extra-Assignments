@@ -110,8 +110,9 @@ namespace CharacterCustomization.Systems
                         int before = attacker.Health;
                         actions.Heal();
                         int healed = attacker.Health - before;
-                        if (healed > 0) s.RoundLog.Add($"{attacker.Name} heals {healed} (HP {attacker.Health}/{attacker.MaxHealth})");
-                        else s.RoundLog.Add($"{attacker.Name} fails to heal");
+                        s.RoundLog.Add(healed > 0
+                            ? $"{attacker.Name} heals {healed} (HP {attacker.Health}/{attacker.MaxHealth})"
+                            : $"{attacker.Name} fails to heal");
                         break;
                     }
                     case "4": // Recover
@@ -119,9 +120,10 @@ namespace CharacterCustomization.Systems
                         int before = UiSystem.GetEnergy(attacker);
                         actions.Recover();
                         int after = UiSystem.GetEnergy(attacker);
-                        int delta = after - before;
-                        if (delta > 0) s.RoundLog.Add($"{attacker.Name} recovers {delta} {UiSystem.EnergyName(attacker)}");
-                        else s.RoundLog.Add($"{attacker.Name} fails to recover");
+                        var delta = after - before;
+                        s.RoundLog.Add(delta > 0
+                            ? $"{attacker.Name} recovers {delta} {UiSystem.EnergyName(attacker)}"
+                            : $"{attacker.Name} fails to recover");
                         break;
                     }
                     case "5": // Special
@@ -129,12 +131,12 @@ namespace CharacterCustomization.Systems
                         s.Player.ClearSpecialOutcome();
                         s.Enemy.ClearSpecialOutcome();
 
-                        int specialDmg = 0;
+                        int specialDmg;
 
-                        if (attacker is IAISpecial aiUser && defender != null && /* AI branch: you already know when it's AI */ attacker != s.Player)
+                        if (attacker is IAiSpecial aiUser && /* AI branch: you already know when it's AI */ attacker != s.Player)
                         {
                             // Enemy (AI) uses a special with defender context
-                            specialDmg = aiUser.SpecialAttackAI(defender);
+                            specialDmg = aiUser.SpecialAttackAi(defender);
                         }
                         else if (attacker is ISpecial userSpecial)
                         {
@@ -155,7 +157,7 @@ namespace CharacterCustomization.Systems
                                 Console.Write("Choose action [1-5]: ");
                                 string newChoice = Console.ReadLine() ?? "1";
                                 DoTurn(s, attacker, defender, newChoice); // restart this turn with a new choice
-                                return; // stop here so we don't continue the original turn
+                                return; 
                             }
 
                             // If not cancelled → proceed with the chosen special

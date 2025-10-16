@@ -19,7 +19,7 @@ namespace CharacterCustomization.Systems
         public double SpecialCapPercent() => _diff.SpecialCapPct;
         
 
-        // Round counter & log for readable damage breakdown
+        // Round counter & log 
         public int RoundNumber { get; private set; } = 1;
         public List<string> RoundLog { get; } = new();
 
@@ -96,7 +96,7 @@ namespace CharacterCustomization.Systems
         {
             // burn scales stronger for high INT/FAITH casters
             int intelFaith = 0;
-            if (c is Mage m) intelFaith = Math.Max(0, m.Mana / 5); // coarse proxy if INT not public
+            if (c is Mage m) intelFaith = Math.Max(0, m.Mana / 5); 
             if (c is Paladin p) intelFaith = Math.Max(intelFaith, p.Zeal / 5);
             int dot = baseDot + c.Level * 2 + (int)(intelFaith * 0.2);
             _burns[c] = (turns, dot);

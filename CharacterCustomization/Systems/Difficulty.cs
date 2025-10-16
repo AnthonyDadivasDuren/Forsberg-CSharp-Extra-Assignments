@@ -1,23 +1,20 @@
 namespace CharacterCustomization.Systems;
 
 
-    // Multipliers > 1.0 = more; < 1.0 = less
     public sealed class DifficultyMods
     {
         public string Name { get; }
         public double PlayerRegenMult { get; }
         public double EnemyRegenMult  { get; }
         public double EnemyDamageMult { get; }
-        public double PotionHealMult  { get; }
         public double SpecialCapPct   { get; } // cap as % of target max HP
 
-        public DifficultyMods(string name, double pRegen, double eRegen, double eDmg, double pot, double capPct)
+        private DifficultyMods(string name, double pRegen, double eRegen, double eDmg, double pot, double capPct)
         {
             Name = name;
             PlayerRegenMult = pRegen;
             EnemyRegenMult  = eRegen;
             EnemyDamageMult = eDmg;
-            PotionHealMult  = pot;
             SpecialCapPct   = capPct;
         }
 

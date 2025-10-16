@@ -1,5 +1,4 @@
 using CharacterCustomization.Characters;
-using System;
 
 namespace CharacterCustomization.Systems
 {
@@ -61,12 +60,11 @@ namespace CharacterCustomization.Systems
                 Console.Clear();
                 Console.WriteLine($"--- Round {round}/{rounds} ---");
 
-                // scale enemy based on player's current level (not initial),
-                // plus round difficulty. This keeps late rounds challenging
+            
                 var enemy = GenerateOpponent(round, player.Level);
                 double enemyDmgMult = 1.0 + (round * 0.08); // +8% per round
 
-                // additional HP scaling so they are not one-shot
+                
                 enemy.MaxHealth = (int)(enemy.MaxHealth * (1.0 + round * 0.08));
                 enemy.Health = enemy.MaxHealth;
 

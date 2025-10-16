@@ -1,6 +1,6 @@
 namespace CharacterCustomization.Characters;
 
-class Paladin : Character, ICharacterActions, ISpecial, IAISpecial
+class Paladin : Character, ICharacterActions, ISpecial, IAiSpecial
 {
     private int Faith { get; set; }
     public int Zeal { get; set; }
@@ -22,7 +22,7 @@ class Paladin : Character, ICharacterActions, ISpecial, IAISpecial
         Zeal = Math.Min(Zeal + restored, Zeal); 
         Console.WriteLine($"{Name} recovers {restored} stamina with a basic holy strike.");
 
-        // Paladin attacks are reliable but can still miss
+        
         if (SharedRng.Next(1, 101) <= 10)
         {
             Console.WriteLine($"{Name}'s holy strike misses!");
@@ -31,8 +31,7 @@ class Paladin : Character, ICharacterActions, ISpecial, IAISpecial
 
         // Moderate crit chance
         bool crit = SharedRng.Next(1, 101) <= 20;
-
-        //  Damage now scales purely from Faith + Level
+        
         int baseDmg = (int)(Faith * 1.5 + Level * 3 + SharedRng.Next(8, 18));
 
         int dmg = crit ? (int)(baseDmg * 1.5) : baseDmg;
@@ -59,7 +58,7 @@ class Paladin : Character, ICharacterActions, ISpecial, IAISpecial
         }
 
         HealingPotions--;
-        int healAmount = 15 + (int)(Level * 5);
+        int healAmount = 15 + Level * 5;
         Health = Math.Min(MaxHealth, Health + healAmount);
 
         Console.WriteLine($"{Name} drinks a potion and heals {healAmount} HP. ({Health}/{MaxHealth})");
@@ -86,7 +85,7 @@ class Paladin : Character, ICharacterActions, ISpecial, IAISpecial
     };
 }
 
-public int SpecialAttackAI(Character defender)
+public int SpecialAttackAi(Character defender)
 {
     if (Zeal >= 24 && defender.Health <= defender.MaxHealth * 4 / 10) return Judgement();
     if (Zeal >= 28) return Consecration();

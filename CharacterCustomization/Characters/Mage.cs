@@ -1,6 +1,6 @@
 namespace CharacterCustomization.Characters;
 
-class Mage : Character, ICharacterActions, ISpecial, IAISpecial
+class Mage : Character, ICharacterActions, ISpecial, IAiSpecial
 {
     public int Mana { get; set; }
     private int Intelligence { get; set; }
@@ -44,10 +44,9 @@ class Mage : Character, ICharacterActions, ISpecial, IAISpecial
 
     public void Defend()
     {
-        if (Mana < 5) { System.Console.WriteLine($"{Name} lacks mana to defend!"); return; }
+        if (Mana < 5) { Console.WriteLine($"{Name} lacks mana to defend!"); return; }
         Mana -= 5;
-        int shield = Intelligence * 2;
-        System.Console.WriteLine($"{Name} conjures a barrier, reducing next damage. (-5 Mana)");
+        Console.WriteLine($"{Name} conjures a barrier, reducing next damage. (-5 Mana)");
     }
 
     public void Heal()
@@ -59,7 +58,7 @@ class Mage : Character, ICharacterActions, ISpecial, IAISpecial
         }
 
         HealingPotions--;
-        int healAmount = 15 + (int)(Level * 5);
+        int healAmount = 15 + Level * 5;
         Health = Math.Min(MaxHealth, Health + healAmount);
 
         Console.WriteLine($"{Name} drinks a potion and heals {healAmount} HP. ({Health}/{MaxHealth})");
@@ -69,7 +68,7 @@ class Mage : Character, ICharacterActions, ISpecial, IAISpecial
     {
         int amount = 25;
         Mana += amount;
-        System.Console.WriteLine($"{Name} meditates and regains {amount} mana. (Mana: {Mana})");
+        Console.WriteLine($"{Name} meditates and regains {amount} mana. (Mana: {Mana})");
     }
 
     // SPECIAL: Arcane Burst — costs 40 mana, big hit + applies BURN for 2 turns (DoT)
@@ -85,7 +84,7 @@ class Mage : Character, ICharacterActions, ISpecial, IAISpecial
     };
 }
 
-public int SpecialAttackAI(Character defender)
+public int SpecialAttackAi(Character defender)
 {
     if (Mana >= 30 && defender.Health <= defender.MaxHealth * 6 / 10) return ArcaneSurge();
     if (Mana >= 20) return FireBlast();

@@ -1,6 +1,6 @@
 namespace CharacterCustomization.Characters;
 
-class Warrior : Character, ICharacterActions, ISpecial, IAISpecial
+class Warrior : Character, ICharacterActions, ISpecial, IAiSpecial
 
 {
     private int Strength { get; set; }
@@ -57,9 +57,9 @@ class Warrior : Character, ICharacterActions, ISpecial, IAISpecial
 
     public void Defend()
     {
-        if (Stamina < 5) { System.Console.WriteLine($"{Name} is too exhausted to defend!"); return; }
+        if (Stamina < 5) { Console.WriteLine($"{Name} is too exhausted to defend!"); return; }
         Stamina -= 5;
-        System.Console.WriteLine($"{Name} raises a shield, reducing next damage taken. (-5 Stamina)");
+        Console.WriteLine($"{Name} raises a shield, reducing next damage taken. (-5 Stamina)");
     }
 
     public void Heal()
@@ -71,7 +71,7 @@ class Warrior : Character, ICharacterActions, ISpecial, IAISpecial
         }
 
         HealingPotions--;
-        int healAmount = 15 + (int)(Level * 5);
+        int healAmount = 15 + Level * 5;
         Health = Math.Min(MaxHealth, Health + healAmount);
 
         Console.WriteLine($"{Name} drinks a potion and heals {healAmount} HP. ({Health}/{MaxHealth})");
@@ -81,7 +81,7 @@ class Warrior : Character, ICharacterActions, ISpecial, IAISpecial
     {
         int amount = 15;
         Stamina += amount;
-        System.Console.WriteLine($"{Name} takes a breather and regains {amount} stamina. (Stamina: {Stamina})");
+        Console.WriteLine($"{Name} takes a breather and regains {amount} stamina. (Stamina: {Stamina})");
     }
 
     // SPECIAL: Power Strike — costs 30 stamina, high damage + STUN (skip target next turn)
@@ -97,11 +97,10 @@ class Warrior : Character, ICharacterActions, ISpecial, IAISpecial
     };
 }
 
-public int SpecialAttackAI(Character defender)
+public int SpecialAttackAi(Character defender)
 {
-    // Simple AI heuristics
     if (Stamina >= 28 && defender.Health <= defender.MaxHealth * 6 / 10) return Whirlwind();
-    if (Stamina >= 12 && defender.Health <= defender.MaxHealth * 3 / 10) return ShieldBash(); // lock a kill via stun
+    if (Stamina >= 12 && defender.Health <= defender.MaxHealth * 3 / 10) return ShieldBash(); 
     if (Stamina >= 18) return PowerStrike();
     if (Stamina >= 15) return RallyingGuard();
     return 0;
@@ -142,7 +141,6 @@ private int Whirlwind()
 
     int baseDmg = (int)(Strength * 1.9 + Math.Sqrt(Level) * 8 + SharedRng.Next(12, 22));
     int dmg = baseDmg;
-    // soft cap ~45% of typical same-level HP (assume ~20 * level)
     int cap = (int)(Level * 20 * 0.45);
     if (dmg > cap) dmg = cap;
 

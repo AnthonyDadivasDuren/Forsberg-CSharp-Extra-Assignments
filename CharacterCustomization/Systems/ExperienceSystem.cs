@@ -1,4 +1,3 @@
-using System;
 using CharacterCustomization.Characters;
 
 
@@ -16,7 +15,7 @@ namespace CharacterCustomization.Systems
             Console.WriteLine($"{winner.Name} gains {xp} XP! ({winner.Experience}/{winner.ExperienceToNextLevel})");
             winner.GainExperience(xp);
 
-            if (winner.Level > 50) winner.Level = 50; // hard cap
+            if (winner.Level > 50) winner.Level = 50; // max level cap
         }
     }
 }
