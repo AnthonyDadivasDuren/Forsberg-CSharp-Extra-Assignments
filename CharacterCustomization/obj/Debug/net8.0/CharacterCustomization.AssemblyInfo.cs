@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CharacterCustomization")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f05148ea5e4b5e95d5708ef5a70ec2f446a8d184")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dde3c98f98aa820b810740cca6390e40842bbf26")]
 [assembly: System.Reflection.AssemblyProductAttribute("CharacterCustomization")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CharacterCustomization")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

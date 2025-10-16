@@ -92,14 +92,18 @@ namespace CharacterCustomization.Systems
                 {
                     case "1": // Attack
                     {
+                        Console.Clear();
                         int dmg = actions.Attack();
                         dmg = s.ApplyHitModifiers(attacker, defender, dmg);
                         dmg = s.ApplyDamageBuff(attacker, dmg);
+                        
                         ApplyDamage(s, defender, dmg);
+                        
                         break;
                     }
                     case "2": // Defend
                     {
+                        Console.Clear();
                         actions.Defend();
                         s.SetDefend(attacker);
                         s.RoundLog.Add($"{attacker.Name} is defending");
@@ -107,6 +111,7 @@ namespace CharacterCustomization.Systems
                     }
                     case "3": // Heal
                     {
+                        Console.Clear();
                         int before = attacker.Health;
                         actions.Heal();
                         int healed = attacker.Health - before;
@@ -117,6 +122,7 @@ namespace CharacterCustomization.Systems
                     }
                     case "4": // Recover
                     {
+                        Console.Clear();
                         int before = UiSystem.GetEnergy(attacker);
                         actions.Recover();
                         int after = UiSystem.GetEnergy(attacker);
@@ -159,6 +165,8 @@ namespace CharacterCustomization.Systems
                                 DoTurn(s, attacker, defender, newChoice); // restart this turn with a new choice
                                 return; 
                             }
+                            
+                            Console.Clear();
 
                             // If not cancelled → proceed with the chosen special
                             specialDmg = userSpecial.SpecialAttack(specialChoice);

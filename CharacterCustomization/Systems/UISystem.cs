@@ -28,14 +28,30 @@ namespace CharacterCustomization.Systems
 
             Console.Clear();
             Console.WriteLine($"================ ROUND {round} ================");
-            int potionHeal = 15 + p.Level * 5;
-            Console.WriteLine($"{p.Level} {p.Name} [{pClass}]  HP {p.Health}/{p.MaxHealth}   {EnergyName(p)}: {GetEnergy(p)}   Potions: {GetPotions(p)} (heal ~{potionHeal})   {s.StatusText(p)}"); 
+            
+            Console.WriteLine($"{p.Level} {p.Name} [{pClass}]  HP {p.Health}/{p.MaxHealth}   {EnergyName(p)}: {GetEnergy(p)}   Potions: {GetPotions(p)}   {s.StatusText(p)}"); 
             Console.WriteLine($"{e.Level} {e.Name} [{eClass}]  HP {e.Health}/{e.MaxHealth}   {EnergyName(e)}: {GetEnergy(e)}   Potions: {GetPotions(e)}   {s.StatusText(e)}");
             Console.WriteLine("-----------------------------------------------");
 
             if (showMainMenu)
             {
-                Console.WriteLine("[1] Attack   [2] Defend   [3] Heal   [4] Recover   [5] Special");
+                int potionHeal = 15 + p.Level * 5;
+                int attackDmgLow = p.Level * 3 + 15;
+                int attackDmgHigh = (int)(p.Level * 4.5 + 30);
+                int recoverAmount = p switch
+                {
+                    Warrior => (int)(5 + p.Level * 0.6),
+                    Mage    => (int)(5 + p.Level * 0.7),
+                    Rogue   => (int)(5 + p.Level * 0.4),
+                    Paladin => (int)(5 + p.Level * 0.5),
+                    _       => 5
+                };
+
+                Console.WriteLine("[1] Attack   - ~{0}-{1} dmg, restores resource", attackDmgLow, attackDmgHigh);
+                Console.WriteLine("[2] Defend   - Reduce incoming damage by ~50%");
+                Console.WriteLine("[3] Heal     - Use potion (~{0} HP)", potionHeal);
+                Console.WriteLine("[4] Recover  - Gain ~{0} resource", recoverAmount);
+                Console.WriteLine("[5] Special  - Open special attack menu");
                 Console.WriteLine("-----------------------------------------------");
             }
         }
